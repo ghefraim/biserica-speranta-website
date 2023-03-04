@@ -221,12 +221,14 @@ body {
 }
 
 .pastors {
-    display: grid;
-    grid-template-columns: 1fr 1fr;  
-    gap: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;  
+  gap: 50px;
+  max-width: 800px;
+  margin: 0 auto;
 }
+
 .pastor {
-    
 }
 .pastor img {
     width: 100px;
@@ -239,7 +241,7 @@ body {
 .card-grid {
     display: grid;
     grid-template-columns: repeat(3, 288px);
-    grid-template-rows: 600px;
+    /* grid-template-rows: 600px; */
     grid-gap: 60px;
     color: #000;
     margin-bottom: 50px;
@@ -333,4 +335,48 @@ footer {
 }
 .footer-text {
   text-align: center;
+}
+
+
+@media (max-width: 1071px) {
+  .card-grid {
+    grid-template-columns: repeat(1, 288px);
+    justify-items: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+      flex-direction: column;
+      height: auto;
+  }
+  .navbar-logo {
+    margin-bottom: 20px;
+    margin: 0 auto 0 0;
+  }
+  .navbar-nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0 0;
+  }
+  .nav-item {
+      margin-right: 0;
+      /* margin-bottom: 5px; */
+  }
+  .navbar ul {
+    display: none;
+  }
+
+  .church-name {
+    font-size: 20px;
+  }
+  .hero-buttons {
+    font-size: 20px;
+  }
+  .horizontal-divider {
+    height: 120px;
+    width: 2px;
+  }
 }
