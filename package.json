@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "connect-modrewrite": "^0.10.2"
+  }
+}
