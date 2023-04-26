@@ -2270,7 +2270,9 @@ figcaption {
   width: 100%;
   height: 100%;
   background-color: #fff;
-  border: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  border-top: 1px solid #000;
   border-left-width: 0;
   border-radius: 0;
   margin: 0 0 auto;
@@ -3311,7 +3313,6 @@ figcaption {
   outline-offset: 0px;
   background-color: #e1e1e1;
   border-radius: 17px;
-  outline: 1px solid #424b54;
   padding: 10px 20px;
 }
 
@@ -3471,7 +3472,9 @@ figcaption {
 }
 
 .mask {
-  border: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-left: 1px solid #000;
+  border-top: 1px solid #000;
 }
 
 .button-2 {
