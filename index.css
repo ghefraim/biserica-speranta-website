@@ -156,3 +156,12 @@
     line-height: 26px;
   }
 }
+
+.news-slides {
+  display: none;
+}
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
