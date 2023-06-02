@@ -1,5 +1,4 @@
 
-
 const departmentTitles = document.querySelectorAll(".div-block-2");
 departmentTitles.forEach(d => {
     d.addEventListener("click", () => {
@@ -17,20 +16,19 @@ departmentTitles.forEach(d => {
 
         const paragraphBlocks = document.querySelectorAll(".text-block-7");
         paragraphBlocks.forEach(p => {
-            if(p.style.display == "flex" && p != paragraphBlock)
+            if(p.style.display == "block" && p != paragraphBlock)
             {
                 p.style.display = "none";
             }
         });
 
-        console.log(paragraphBlock.style.display);
         if(paragraphBlock.style.display == "none")
         {
-            paragraphBlock.style.display = "flex";
+            paragraphBlock.style.display = "block";
         }
         else //if(paragraphBlock.style.display == "flex")
         {
             paragraphBlock.style.display = "none";
         }
-    })
+    });
 });
