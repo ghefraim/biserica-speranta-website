@@ -165,3 +165,18 @@
   position: relative;
   margin: auto;
 }
+
+.headshot-circle {
+  width: 150px;
+}
+
+@media screen and (max-width:786px) {
+  .headshot-circle {
+    width: 100px;
+  }
+}
+@media screen and (max-width:450px) {
+  .headshot-circle {
+    width: 85px;
+  }
+}

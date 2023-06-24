@@ -19,8 +19,7 @@ document.querySelector('.submit-button').addEventListener('click', function(even
                 document.querySelector('.w-form-done').style.display = 'block';
                 submitButton.style.display = 'none';
             }, function(error) {
-                console.log('FAILED...', error);
-                document.querySelector('.w-form-fail > div').innerHTML = 'Ceva nu a functionat. Incearca mai tarziu';
+                document.querySelector('.w-form-fail > div').innerHTML = `Ceva nu a functionat. Incearca mai tarziu<br>${error}`;
                 document.querySelector('.w-form-fail').style.display = 'block';
             });
     }
