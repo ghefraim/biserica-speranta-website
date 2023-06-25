@@ -1,2 +1,2 @@
 # Church website
-This website was done for a romanian church.
+This website was made for a romanian church.
