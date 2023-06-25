@@ -1,0 +1,50 @@
+#videos {
+    margin: 0 100px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+}
+
+.video-link {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.thumbnail-image {
+    width: 100%;
+    height: auto;
+}
+
+.video-title {
+    margin-top: 5px;
+    font-size: 11pt;
+    line-height: normal;
+}
+
+#video-player {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: none;
+    /* Hide the video player initially */
+}
+
+#video-player.active {
+    display: flex;
+    /* Show the video player when it has the "active" class */
+}
+
+#video-player iframe {
+    width: 80%;
+    height: 60%;
+}

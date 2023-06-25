@@ -11,7 +11,7 @@
     <meta content="Galerie" property="twitter:title" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
-    <link href="./index.css" rel="stylesheet" type="text/css" />
+    <link href="./arhiva.css" rel="stylesheet" type="text/css" />
     <link href="../webflow.css" rel="stylesheet" type="text/css" />
     <link href="../global.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -36,7 +36,7 @@
     <link href="https://uploads-ssl.webflow.com/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="https://uploads-ssl.webflow.com/img/webclip.png" rel="apple-touch-icon" />
 </head>
- 
+
 <body class="body-5">
     <div data-collapse="medium" data-animation="default" data-duration="400"
         data-w-id="18638a64-158e-82a5-ef35-2151b27a4e25" data-easing="ease" data-easing2="ease" role="banner"
@@ -71,28 +71,36 @@
         </div>
     </div>
 
-    <div class="align-center">
-        <div class="style1 align-center" id="blcPlayer456335378">
-            <div align="center">
-                <p> </p>
-                <p>
-                    <a href="http://get.adobe.com/flashplayer/" target="_blank">
-                        <img src="http://wwwimages.adobe.com/www.adobe.com/images/shared/download_buttons/get_flash_player.gif"
-                            alt="Obtineti Adobe Flash Player" />
-                    </a>
-                </p>
-            </div>
-            <p class="align-center"><a href="http://get.adobe.com/flashplayer/" target="_blank">Pentru a receptiona transmisia
-                    LIVE aveti nevoie un browser cu suport JavaScript activ si de Flash Player versiunea %FLASH_REQ_VERSION%
-                    sau mai mare. Click pentru a-l obtine si instala.</a></p>
-        </div>
-        <div class="style1 align- center">
-    
-            <script type="text/javascript" defer="defer" align="center"
-                src="http://embed.bisericilive.com/get?cid=sperantaoradearo&amp;w=800&amp;h=450&amp;tid=blcPlayer456335378"></script>
-    
-        </div>
+    <!--Content-->
+
+    <div class="selection">
+        <select class="form-select" id="month" name="month">
+            <option value="">lună</option>
+            <option value="01">Ianuarie</option>
+            <option value="02">Februarie</option>
+            <option value="03">Martie</option>
+            <option value="04">Aprilie</option>
+            <option value="05">Mai</option>
+            <option value="06">Iunie</option>
+            <option value="07">Iulie</option>
+            <option value="08">August</option>
+            <option value="09">Septembrie</option>
+            <option value="10">Octombrie</option>
+            <option value="11">Noiembrie</option>
+            <option value="12">Decembrie</option>
+        </select>
+
+        <select class="form-select" id="month" name="month">
+            <option value="">an</option>
+            <option value="01">2023</option>
+            <option value="01">2022</option>
+        </select>
     </div>
+
+    <div id="videos"></div>
+
+    <div id="video-player"></div>
+    <!--goes here-->
 
     <div class="section cc-home-wrap"></div>
     <div class="section footer">
@@ -120,6 +128,7 @@
         type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
         crossorigin="anonymous"></script>
     <script src="../webflow.js" type="text/javascript"></script>
+    <script src="../arhiva.js" type="text/javascript"></script>
     <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
 </body>
 
