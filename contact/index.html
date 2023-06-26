@@ -79,11 +79,19 @@
                             <form data-name="Get In Touch Form" name="wf-form-Get-In-Touch-Form" id="email-form" method="get" class="get-in-touch-form">
                                 <label for="name">Nume si prenume</label>
                                 <input type="text" class="text-field cc-contact-field w-input" maxlength="256" name="name" data-name="name" placeholder="Ajuta-ne să te recunoaștem" id="name"/>
+                                
                                 <label for="email">email</label>
                                 <input type="email" class="text-field cc-contact-field w-input" maxlength="256" name="email" data-name="email" placeholder="Introdu adresa ta de email" id="email" required=""/>
-                                <label for="Message">Mesajul tau</label>
+                                
+                                <label for="send_to">Cui trimit mesajul</label>
+                                <select class="form-select send-to" id="send_to" name="send_to">
+                                    <option value="radumaris2013@yahoo.com">Mariș Radu</option>
+                                    <option value="nelumold@yahoo.com">Moldovan Ioan</option>
+                                </select>
+
+                                <label for="Message">Mesaj</label>
                                 <textarea id="message" name="message" placeholder="Pace, aș dori să..." maxlength="5000" data-name="message" class="text-field cc-textarea cc-contact-field w-input"></textarea>
-                                <input type="submit" value="Submit" data-wait="Please wait..." class="button w-button submit-button"/>
+                                <input type="submit" value="Trimite" data-wait="Please wait..." class="button w-button submit-button"/>
                             </form>
                             <div class="status-message cc-success-message w-form-done">
                                 <div>Mesajul dvs. a fost trimis!</div>
@@ -95,7 +103,7 @@
                     </div>
                     <div id="w-node-_3f61509a-fac7-b0d5-3763-509be70585a6-193cbfa9">
                         <div class="details-wrap">
-                            <div class="label">Orar obisnuit</div>
+                            <div class="label">Orar</div>
                             <div class="paragraph-light contact-more-info">
                                 Duminica dimineata - 9:30<br/>
                                 Duminica seara - 18:00<br/>
@@ -108,10 +116,16 @@
                         <div class="details-wrap">
                             <div class="label">CONTACT</div>
                             <a href="mailto:contact@business.com?subject=You&#x27;ve%20got%20mail!" class="contact-email-link">
-                                <strong>bpsoradea@gmail.com</strong>
+                                <strong>radumaris2013@yahoo.com</strong>
                             </a>
                             <div class="paragraph-light">
-                                <strong>0259 444 471</strong>
+                                <strong>0744 434 283</strong>
+                            </div>
+                            <a href="mailto:contact@business.com?subject=You&#x27;ve%20got%20mail!" class="contact-email-link">
+                                <strong>nelumold@yahoo.com</strong>
+                            </a>
+                            <div class="paragraph-light">
+                                <strong>0743 076 189</strong>
                             </div>
                         </div>
                         <div class="details-wrap">
@@ -132,7 +146,7 @@
                             <div class="label">Locatia noastra</div>
                             <div class="paragraph-light contact-more-info">
                                 Strada Bihorului, 53<br/>
-                                Oradea, Bihor<br/>ZIP 410....?
+                                Oradea, Bihor
                             </div>
                         </div>
                     </div>
