@@ -772,12 +772,13 @@ label {
 
 .paragraph-light {
     opacity: .6;
-    color: #141418;
+    /* color: #141418; */
+    color: #000;
     text-align: center;
     margin-top: 8px;
     margin-bottom: 15px;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 500;
     display: block;
     overflow: visible
 }

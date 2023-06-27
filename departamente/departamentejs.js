@@ -26,9 +26,21 @@ departmentTitles.forEach(d => {
         {
             paragraphBlock.style.display = "block";
         }
-        else //if(paragraphBlock.style.display == "flex")
+        else //if(paragraphBlock.style.display == "block")
         {
             paragraphBlock.style.display = "none";
         }
     });
+});
+
+
+
+// for external links
+document.addEventListener("DOMContentLoaded", function() {
+    // Check for the URL parameter on page load
+    const urlParams = new URLSearchParams(window.location.search);
+    const departament = urlParams.get("departament");
+
+    document.getElementById(departament).style.display = "block";
+    
 });

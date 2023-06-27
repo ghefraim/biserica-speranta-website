@@ -158,12 +158,30 @@
 }
 
 .news-slides {
-  display: none;
+  /* display: none; */
 }
 .slideshow-container {
   max-width: 1000px;
   position: relative;
   margin: auto;
+}
+
+.news-slides {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.news-slides.show {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.news-slides.hide {
+  opacity: 0;
+  transform: translateX(-100%);
 }
 
 .headshot-circle {
@@ -179,4 +197,18 @@
   .headshot-circle {
     width: 85px;
   }
+}
+
+.doneaza-button {
+  background-color: #6e8b60 !important;
+}
+.is-live {
+  background-color: #864141 !important;
+}
+
+.inline-link {
+  color: #4c61b4;
+  text-decoration: none;
+  display: inline;
+  font-weight: 600;
 }
