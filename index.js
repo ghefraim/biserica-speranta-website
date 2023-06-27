@@ -31,7 +31,6 @@ function showSlides() {
 let slideshowContainer = document.querySelector(".slideshow-container");
 
 slideshowContainer.addEventListener("mouseover", function() {
-  console.log("XD");
   clearTimeout(slideshowTimer);
 });
 
@@ -39,3 +38,41 @@ slideshowContainer.addEventListener("mouseout", function() {
   slideshowTimer = setTimeout(showSlides, 2000);
 });
 
+
+
+
+// for the 2 pieces of text on hero image
+document.addEventListener("DOMContentLoaded", function() {
+  const textRows = document.querySelectorAll(".hero-text > h2");
+
+  // Start the loop after 6 seconds
+  setTimeout(startTextLoop, 1000);
+
+  function startTextLoop() {
+    // Show the first text row and animate it
+    textRows.forEach(function(row) {
+      row.style.display = "none";
+    });
+
+    const firstRow = document.querySelectorAll(".hero-text-1");
+    firstRow.forEach(function(row) {
+      row.style.display = "block";
+    });
+
+    // Set a timeout to switch to the second text row after 6 seconds
+    setTimeout(function() {
+      // Show the second text row and animate it
+      textRows.forEach(function(row) {
+        row.style.display = "none";
+      });
+
+      const secondRow = document.querySelectorAll(".hero-text-2");
+      secondRow.forEach(function(row) {
+        row.style.display = "block";
+      });
+
+      // Set a timeout to switch back to the first text row after 6 seconds
+      setTimeout(startTextLoop, 6000);
+    }, 6000);
+  }
+});
