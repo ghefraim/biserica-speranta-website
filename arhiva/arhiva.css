@@ -4,7 +4,11 @@
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;
 }
-
+@media screen and (max-width:786px) {
+    #videos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 .video-link {
     display: block;
     text-align: center;
@@ -47,4 +51,33 @@
 #video-player iframe {
     width: 80%;
     height: 60%;
+}
+
+
+.selection{
+    margin: 20px auto;
+    text-align: center;
+}
+.selection select {
+    width: 100px;
+}
+.button-container {
+    display: grid;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.search-button {
+    /* display: block; */
+    justify-self: center;
+    background-color: #424b54;
+    color: white;
+    padding: 2px 30px;
+}
+.button-container > a{
+    color: #9b6666;
+    background: #e9e9e9;
+    justify-self: center;
+    padding: 2px 30px;
+    text-decoration: none;
+    margin-top: 50px;
 }
