@@ -1,5 +1,5 @@
 // Replace YOUR_API_KEY with your actual API key obtained from the Google Developers Console
-const apiKey = 'AIzaSyBXNpC4vAqsKBp_47nOn_iBk2pSIYV4MGk';
+const youtubeApiKey = 'AIzaSyBXNpC4vAqsKBp_47nOn_iBk2pSIYV4MGk';
 
 // Replace CHANNEL_ID with the ID of the YouTube channel you want to retrieve videos from
 const channelId = 'UCm1ODx0H6FOXB6llT1_Fx0Q';
@@ -16,7 +16,7 @@ const oneMonthAgo = new Date(currentDate.getFullYear(), currentDate.getMonth() -
 const formattedCurrentDate = currentDate.toISOString();
 const formattedOneMonthAgo = oneMonthAgo.toISOString();
 
-getVideos(formattedOneMonthAgo, formattedCurrentDate);
+getVideosFromYoutube(formattedOneMonthAgo, formattedCurrentDate);
 
 // Function to play the video
 function playVideo(event) {
@@ -47,13 +47,18 @@ const search_button = document.querySelector('.search-button').addEventListener(
   const selectionStartDate = new Date(year, month-1, 1);
   const selectionEndDate = new Date(year, month, 1);
 
-  getVideos(selectionStartDate.toISOString(), selectionEndDate.toISOString());
+  if (year != 'old') {
+    getVideosFromYoutube(selectionStartDate.toISOString(), selectionEndDate.toISOString());    
+  } 
+  else {
+    getVideosFromOldArchive();
+  }
 });
 
-function getVideos(startDate, endDate){
+function getVideosFromYoutube(startDate, endDate){
   document.getElementById('videos').innerHTML = '';
   // Create the API request URL
-  const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&publishedAfter=${startDate}&publishedBefore=${endDate}&maxResults=50`;
+  const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${youtubeApiKey}&channelId=${channelId}&part=snippet,id&order=date&publishedAfter=${startDate}&publishedBefore=${endDate}&maxResults=75`;
 
   // Fetch the videos from the API
   fetch(apiUrl)
@@ -63,7 +68,7 @@ function getVideos(startDate, endDate){
       // Iterate through the videos and create a thumbnail for each video
       data.items.forEach(item => {
         const videoId = item.id.videoId;
-        const videoTitle = item.snippet.title;
+        const videoTitle = decodeHTMLEntities(item.snippet.title);
         const videoThumbnail = item.snippet.thumbnails.medium.url;
 
         const videoLink = document.createElement('a');
@@ -88,4 +93,19 @@ function getVideos(startDate, endDate){
     .catch(error => {
       console.error('Eroare:', error);
     });
+}
+
+//for video titles
+function decodeHTMLEntities(text) {
+  const parser = new DOMParser();
+  const decodedText = parser.parseFromString(`<!doctype html><body>${text}`, 'text/html').body.textContent;
+  return decodedText;
+}
+
+function getVideosFromOldArchive() {
+  document.getElementById('videos').innerHTML = '';
+  const arhivaOldContainer = document.getElementById('arhiva-old');
+  arhivaOldContainer.innerHTML= `<iframe scrolling="auto" frameborder="0"
+            src="http://archives.bisericilive.com/gallery?cid=sperantaoradearo&c=4&bgc=fff&gc=555&esc=ddd&esch=ccc"
+            allowtransparency="false"></iframe>`;
 }
