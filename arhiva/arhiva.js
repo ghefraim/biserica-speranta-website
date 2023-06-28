@@ -109,3 +109,8 @@ function getVideosFromOldArchive() {
             src="http://archives.bisericilive.com/gallery?cid=sperantaoradearo&c=4&bgc=fff&gc=555&esc=ddd&esch=ccc"
             allowtransparency="false"></iframe>`;
 }
+
+/*
+ideea if i do not get answer. It's still better than ours
+https://www.cezareea.ro/transmisie-live/arhiva-video-cezareea-ro/
+*/

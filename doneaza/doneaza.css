@@ -1,0 +1,19 @@
+
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 30px;
+    column-gap: 10px;
+}
+
+.buttons-grid > a{
+    background-color: rgb(204, 159, 34);
+    text-align: center;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.buttons-grid>a:nth-child(4){
+    background-color: rgb(58, 77, 24);
+}
