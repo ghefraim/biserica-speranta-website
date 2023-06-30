@@ -13,3 +13,20 @@ const navbtn = document.querySelector(".menu-button").addEventListener("click", 
         navigation.style.backgroundColor = "rgba(0, 0, 0, 0)";
     }
 });
+
+
+const footerSocialButtons = document.querySelectorAll(".footer-wrap > div > div > img");
+footerSocialButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        // basically i check the source name and add the links accordingly
+        if (btn.src.includes("facebook")) {
+            window.open("https:///www.facebook.com/bpsperanta", '_blank');
+        }
+        else if (btn.src.includes("instagram")) {
+            window.open("https://www.instagram.com/tineret_speranta_oradea/", '_blank');
+        }
+        else if (btn.src.includes("youtube")) {
+            window.open("https://www.youtube.com/@SperantaOradea1", '_blank');
+        }
+    });
+});
