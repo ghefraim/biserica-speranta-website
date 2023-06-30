@@ -35,3 +35,35 @@ function formCheck(name, email, message) {
     }
     return true;
 }
+
+
+const bisericaSocialButtons = document.querySelectorAll(".biserica-socials > img");
+bisericaSocialButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        // basically i check the source name and add the links accordingly
+        if (btn.src.includes("facebook")) {
+            window.open("https:///www.facebook.com/bpsperanta", '_blank');
+        }
+        // else if (btn.src.includes("instagram")) {
+        //     window.open("", '_blank');
+        // }
+        else if (btn.src.includes("youtube")) {
+            window.open("https://www.youtube.com/@SperantaOradea1", '_blank');
+        }
+    });
+});
+
+const tineretSocialButtons = document.querySelectorAll(".tineret-socials > img");
+tineretSocialButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        // basically i check the source name and add the links accordingly
+        if (btn.src.includes("facebook")) {
+            window.open("https://www.facebook.com/tineretsperantaoradea", '_blank');
+        }
+        else if (btn.src.includes("instagram")) {
+            window.open("https://www.instagram.com/tineret_speranta_oradea/", '_blank');
+        }
+    });
+});
+
+
