@@ -1,30 +1,12 @@
 let slideIndex = 0;
 let slideshowTimer;
 
+let i;
+let slides = document.getElementsByClassName("news-slides");
 showSlides();
 
 function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("news-slides");
-
-  for (i = 0; i < slides.length; i++) {
-    slides[i].classList.remove("show");
-    // slides[i].style.display = "none";  
-  }
-
-  slideIndex++;
-  if (slideIndex > slides.length) {
-    slideIndex = 1;
-  }
-
-  slides[slideIndex - 1].classList.add("show");
-  // slides[slideIndex - 1].style.display = "block";
-
-  // Clear the previous timer
-  clearTimeout(slideshowTimer);
-
-  // Start a new timer
-  slideshowTimer = setTimeout(showSlides, 4000);
+  goToSlide(1);
 }
 
 // Add event listeners to reset the timer when the mouse is over the slides
@@ -38,8 +20,32 @@ slideshowContainer.addEventListener("mouseout", function() {
   slideshowTimer = setTimeout(showSlides, 2000);
 });
 
+document.querySelector(".right-arrow-slide").addEventListener("click", () => {
+  goToSlide(1);
+});
 
+document.querySelector(".left-arrow-slide").addEventListener("click", () => {
+  goToSlide(-1);
+});
 
+function goToSlide(pos) {
+  for (i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("show");
+  }
+
+  slideIndex = slideIndex + pos;
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  }
+  if (slideIndex < 1) {
+    slideIndex =  slides.length;
+  }
+
+  slides[slideIndex - 1].classList.add("show");
+
+  clearTimeout(slideshowTimer);
+  slideshowTimer = setTimeout(showSlides, 5000);
+}
 
 // for the 2 pieces of text on hero image
 document.addEventListener("DOMContentLoaded", function() {
@@ -76,5 +82,4 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 6000);
   }
 });
-
 
