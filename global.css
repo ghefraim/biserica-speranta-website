@@ -73,6 +73,11 @@
   }
 }
 
+.footer > .container > img {
+    height: 100px;
+    margin-left: 20px;
+}
+
 .fw-500{
   font-weight: 500;
 }
