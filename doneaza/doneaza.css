@@ -17,3 +17,70 @@
 .buttons-grid>a:nth-child(4){
     background-color: rgb(58, 77, 24);
 }
+.qr-container {
+    text-align: center;
+}
+.qr-container > img{
+    max-height: 100px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.w-container {
+    text-align: center;
+}
+
+.box {
+    width: 150px;
+    /* height: 75px; */
+    padding: 7px;
+    position: relative;
+    margin: 20px;
+}
+
+.box.arrow-top {
+    margin-top: 10px;
+}
+
+.box.arrow-top:after {
+    content: " ";
+    position: absolute;
+    right: 60px;
+    top: -15px;
+    border-top: none;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid rgb(238, 238, 238);
+}
+
+.payment-grid {
+    grid-row-gap: 0px;
+    grid-column-gap: 16px;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1px 1fr;
+    grid-auto-columns: 1fr;
+    display: grid;
+        border-radius: 10px;
+}
+
+.horizontal-divider {
+    background-color: black;
+    width: 1px;
+    justify-self: center;
+}
+
+@media screen and (max-width: 767px) { 
+    .payment-grid {
+        grid-template-columns: 1fr;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .horizontal-divider {
+        width: 100%;
+        height: 1px;
+    }
+    .qr-container>img {
+        margin-bottom: 20px;
+    }
+}
