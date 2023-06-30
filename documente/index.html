@@ -9,9 +9,9 @@
     <meta content="Galerie" property="twitter:title" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
-    <link href="./arhiva.css" rel="stylesheet" type="text/css" />
     <link href="../webflow.css" rel="stylesheet" type="text/css" />
     <link href="../global.css" rel="stylesheet" type="text/css" />
+    <link href="./documente.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
@@ -45,9 +45,9 @@
             </a>
             <div class="menu">
                 <nav role="navigation" class="navigation-items w-nav-menu">
-                    <a href="../departamente" class="navigation-item w-nav-link">DEPARTAMENTE</a>
+                    <a href="../departamente" class="navigation-item w-nav-link ">DEPARTAMENTE</a>
                     <a href="../contact" class="navigation-item w-nav-link">CONTACT</a>
-                    <a href="../documente" class="navigation-item w-nav-link">DOCUMENTE</a>
+                    <a href="../documente" class="navigation-item w-nav-link w--current">DOCUMENTE</a>
                     <a href="../galerie" class="navigation-item w-nav-link">GALERIE</a>
                     <a href="../doneaza" class="navigation-item w-nav-link">DONEAZĂ</a>
                 </nav>
@@ -61,9 +61,9 @@
         </div>
         <div class="popup-nav" style="display: flex; opacity: 0; top: -1000px;">
             <ul>
-                <li><a href="../departamente" class="navigation-item w--current">DEPARTAMENTE</a></li>
+                <li><a href="../departamente" class="navigation-item ">DEPARTAMENTE</a></li>
                 <li><a href="../contact" class="navigation-item">CONTACT</a></li>
-                <li><a href="../documente" class="navigation-item">DOCUMENTE</a></li>
+                <li><a href="../documente" class="navigation-item w--current">DOCUMENTE</a></li>
                 <li><a href="../galerie" class="navigation-item">GALERIE</a></li>
                 <li><a href="../doneaza" class="navigation-item">DONEAZĂ</a></li>
             </ul>
@@ -71,6 +71,87 @@
     </div>
 
     <!--Content-->
+    <div class="page-title">
+        <h1>Documente</h1>
+        <h5>De aici poți descărca documente in format PDF sau Word, 
+            pentru a fi completate, iar mai apoi aduse <strong>fizic la biserică.</strong></h5>
+    </div>
+
+    <div class="documente-container">
+        <table style="width:100%">
+            <thead>
+            <tr>
+                <th>Document</th>
+                <th>PDF</th>
+                <th>Word(.docx)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr id="Cerere-Botez">
+                <td>Cerere de botez în apă</td>
+                <td>
+                    <a href="../assets/documents/Cerere-Botez.pdf" download>
+                        <img src="../assets/download-icon.svg" alt="Descarcă">
+                    </a>
+                </td>
+                <td>
+                    <a href="../assets/documents/Cerere-Botez.docx" download>
+                        <img src="../assets/download-icon.svg" alt="Descarcă">
+                    </a>
+                </td>
+            </tr>
+            <tr id="Fisa-Membru">
+                <td>Fișă de membru</td>
+                <td>
+                    <a href="../assets/documents/Fisa-Membru.pdf" download>
+                        <img src="../assets/download-icon.svg" alt="Descarcă">
+                    </a>
+                </td>
+                <td>
+                    <a href="../assets/documents/Fisa-Membru.pdf" download>
+                        <img src="../assets/download-icon.svg" alt="Descarcă">
+                    </a>
+                </td>
+            </tr>
+            <tr id="Redirectionare-Impozit">
+                <td>Redirecționează impozitul spre biserică</td>
+                <td>
+                    <a href="../assets/documents/Redirectionare-Impozit.pdf" download>
+                        <img src="../assets/download-icon.svg" alt="Descarcă">
+                    </a>
+                </td>
+                <td>
+                    <a href="../assets/documents/Redirectionare-Impozit.docx" download>
+                        <img src="../assets/download-icon.svg" alt="Descarcă">
+                    </a>
+                </td>
+            </tr>
+            <tr id="Fisa-Familiei">
+                <td>Fișa familiei</td>
+                <td>
+                    <a href="../assets/documents/Fisa-Familiei.pdf" download>
+                        <img src="../assets/download-icon.svg" alt="Descarcă">
+                    </a>
+                </td>
+                <td>
+                    <a href="../assets/documents/Fisa-Familiei.docx" download>
+                        <img src="../assets/download-icon.svg" alt="Descarcă">
+                    </a>
+                </td>
+            </tr>
+            <tr id="Plan-Citire-Biblie">
+                <td>Plan citire biblie</td>
+                <td>
+                    <a href="../assets/documents/Plan-Citire-Biblie.pdf" download>
+                        <img src="../assets/download-icon.svg" alt="Descarcă">
+                    </a>
+                </td>
+                <td>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
     <!--goes here-->
 
     <div class="section cc-home-wrap"></div>
@@ -95,7 +176,7 @@
         crossorigin="anonymous"></script>
     <!-- <script src="../webflow.js" type="text/javascript"></script> -->
     <script src="../global.js" type="text/javascript"></script>
-    <script src="./arhiva.js" type="text/javascript"></script>
+    <script src="./documente.js" type="text/javascript"></script>
     <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
 </body>
 
