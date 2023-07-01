@@ -43,6 +43,7 @@ function goToSlide(pos) {
 
   slides[slideIndex - 1].classList.add("show");
 
+
   clearTimeout(slideshowTimer);
   slideshowTimer = setTimeout(showSlides, 5000);
 }

@@ -137,9 +137,10 @@
 /* FROM WEBFLOW: */
 
 .mask {
-  border-bottom: 1px solid #000;
-  border-left: 1px solid #000;
-  border-top: 1px solid #000
+  border-bottom: 1px solid #00000036;
+  border-left: 1px solid #00000036;
+  border-top: 1px solid #00000036;
+  border-right: 1px solid #00000036;
 }
 
 .container.this-week {
@@ -192,32 +193,6 @@
   }
 }
 
-.news-slides {
-  /* display: none; */
-}
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-
-.news-slides {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-}
-
-.news-slides.show {
-  opacity: 1;
-  transform: translateX(0%);
-}
-
-.news-slides.hide {
-  opacity: 0;
-  transform: translateX(-100%);
-}
 
 .headshot-circle {
   width: 150px;
@@ -311,7 +286,6 @@
   background-color: #fff;
   border-radius: 0;
   margin: 0 0 auto;
-  /* padding-top: 12%; */
   padding-bottom: 0;
   display: block;
   overflow: visible;
@@ -319,19 +293,68 @@
 
 .news-container {
   max-width: 940px;
-  margin: 0 auto;
-  height: 640px;
-  /* max-width: 952px; */
+  margin: 20px auto;
   object-fit: contain;
-  /* box-shadow: 4px 4px 4px rgba(0, 0, 0, .2); */
 }
 
 .news-slider {
-  height: 450px;
+  /* height: 450px; */
   text-align: center;
   clear: both;
   background: #ddd;
   position: relative;
-  /* height: 100%; */
   background-color: rgba(255, 255, 255, 0);
+}
+
+.w-slider-mask {
+  display: flex;
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  /* margin: auto; */
+  display: flex;
+  flex: 1;
+}
+
+.news-slides {
+  opacity: 0;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  height: 100%;
+  flex: 1;
+  display: none;
+}
+
+.news-slides.show {
+  opacity: 1;
+  display: block;
+  transform: translateX(0%);
+}
+
+/* .news-slides.hide {
+  opacity: 0;
+  display: none;
+  transform: translateX(-100%);
+} */
+
+.news-slider-container {
+  height: 528px;
+  background-color: #00000036;
+}
+
+.news-slides > img {
+  height: 100%;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+@media screen and (max-width:976px) {
+  .news-slider-container {
+    height: calc(100vw * 9 / 16); /*keep a 19:9 ratio for the image*/
+  }
+  .news-grid {
+    /* width: 90%; */
+    margin: 0 auto;
+  }
 }

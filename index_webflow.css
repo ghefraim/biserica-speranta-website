@@ -1246,7 +1246,9 @@ label {
 
 .icon,
 .icon-2 {
-    color: #a5a29c
+    color: #fff;
+    /* mix-blend-mode: difference; */
+    text-shadow: 2px 2px 4px #000000;
 }
 
 .grid-5 {
@@ -1468,10 +1470,6 @@ label {
     .image-6 {
         height: 100%;
         object-fit: contain
-    }
-
-    .icon {
-        color: #a5a29c
     }
 }
 
