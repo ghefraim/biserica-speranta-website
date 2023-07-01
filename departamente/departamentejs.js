@@ -2,6 +2,14 @@
 const departmentTitles = document.querySelectorAll(".div-block-2");
 departmentTitles.forEach(d => {
     d.addEventListener("click", () => {
+        // highlight the selected button:
+        if (!d.classList.contains("selected-button")) {
+            d.classList.add("selected-button");
+        }
+        else {
+            d.classList.remove("selected-button");
+        }
+        // make corresponding div appear:
         let j;
         for(j=0; j<departmentTitles.length;j++)
         {

@@ -9,3 +9,7 @@ hr {
     height: 1px;
     width: 100%;
 }
+
+.selected-button {
+    background-color: #adadad;
+}
