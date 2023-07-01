@@ -9,6 +9,13 @@ departmentTitles.forEach(d => {
         else {
             d.classList.remove("selected-button");
         }
+
+        departmentTitles.forEach(dep => {
+            if(dep != d){
+                dep.classList.remove("selected-button");
+            }
+        });
+
         // make corresponding div appear:
         let j;
         for(j=0; j<departmentTitles.length;j++)
@@ -24,20 +31,30 @@ departmentTitles.forEach(d => {
 
         const paragraphBlocks = document.querySelectorAll(".text-block-7");
         paragraphBlocks.forEach(p => {
-            if(p.style.display == "block" && p != paragraphBlock)
+            // if(p.style.display == "block" && p != paragraphBlock)
+            // {
+            //     p.style.display = "none";
+            // }
+            if(p.classList.contains("active") && p != paragraphBlock)
             {
-                p.style.display = "none";
+                p.classList.remove("active");
             }
         });
 
-        if(paragraphBlock.style.display == "none")
-        {
-            paragraphBlock.style.display = "block";
+        if (!paragraphBlock.classList.contains("active")){
+            paragraphBlock.classList.add("active");
         }
-        else //if(paragraphBlock.style.display == "block")
-        {
-            paragraphBlock.style.display = "none";
+        else {
+            paragraphBlock.classList.remove("active");
         }
+        // if(paragraphBlock.style.display == "none")
+        // {
+        //     paragraphBlock.style.display = "block";
+        // }
+        // else //if(paragraphBlock.style.display == "block")
+        // {
+        //     paragraphBlock.style.display = "none";
+        // }
     });
 });
 

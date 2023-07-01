@@ -13,3 +13,22 @@ hr {
 .selected-button {
     background-color: #adadad;
 }
+
+.text-block-7 {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out;
+}
+
+.text-block-7 {
+  padding: 0px 40px;
+}
+
+.text-block-7.active {
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+  padding: 20px 40px;
+}
