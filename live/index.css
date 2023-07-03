@@ -2,8 +2,15 @@
     display: flex;
     justify-content: center;
 }
+.align-center > p {
+    margin-top: 50px;
+}
+.inline-button {
+    color: #0d35d4;
+    font-weight: 600;
+}
 @media screen and (max-width: 991px){
-    .align-center {
+    .live-video-wrapper {
         /* margin: auto 0; */
         margin-top: 5vh;
     }
