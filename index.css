@@ -217,7 +217,7 @@
 }
 
 .inline-link {
-  color: #4c61b4;
+  color: #0d35d4;
   text-decoration: none;
   display: inline;
   font-weight: 600;
@@ -346,5 +346,17 @@
   .news-grid {
     /* width: 90%; */
     margin: 0 auto;
+  }
+}
+
+
+.news-text > div > div > p {
+  /* font-weight: 600; */
+  font-size: 19px;
+}
+
+@media screen and (max-width:976px) {
+  .news-text>div>div>p {
+    font-size: 16px;
   }
 }
