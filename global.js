@@ -30,3 +30,14 @@ footerSocialButtons.forEach(btn => {
         }
     });
 });
+
+window.addEventListener('click', function(e){   
+  if (popup.contains(e.target) || navigation.contains(e.target) ||  document.querySelector(".menu-button").contains(e.target)){
+    // Clicked on popup
+  } else{
+    // Clicked outside the poup
+    popup.style.opacity = "0";
+    popup.style.top = "-1000px";
+    navigation.style.backgroundColor = "rgba(0, 0, 0, 0)";
+  }
+});
