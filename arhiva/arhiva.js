@@ -47,11 +47,14 @@ const search_button = document.querySelector('.search-button').addEventListener(
   const selectionStartDate = new Date(year, month-1, 1);
   const selectionEndDate = new Date(year, month, 1);
 
-  if (year != 'old') {
-    getVideosFromYoutube(selectionStartDate.toISOString(), selectionEndDate.toISOString());    
-  } 
-  else {
+  if (year == 'old') {
     getVideosFromOldArchive();
+  } 
+  else if (year=='2020' && (month=='1' || month == '2')) {
+    getVideosFromOldArchive();
+  }
+  else {
+    getVideosFromYoutube(selectionStartDate.toISOString(), selectionEndDate.toISOString());    
   }
 });
 
@@ -65,11 +68,14 @@ function getVideosFromYoutube(startDate, endDate){
     .then(response => response.json())
     .then(data => {
       const videosContainer = document.getElementById('videos');
+              console.log();
       // Iterate through the videos and create a thumbnail for each video
       data.items.forEach(item => {
         const videoId = item.id.videoId;
         const videoTitle = decodeHTMLEntities(item.snippet.title);
-        const videoThumbnail = item.snippet.thumbnails.medium.url;
+        const uploadDate = new Date(item.snippet.publishedAt);
+        const formattedUploadDate = uploadDate.toLocaleDateString();
+        const videoThumbnail = getThumbnailFromArchive(uploadDate);
 
         const videoLink = document.createElement('a');
         videoLink.href = `https://www.youtube.com/watch?v=${videoId}`;
@@ -78,6 +84,7 @@ function getVideosFromYoutube(startDate, endDate){
 
         const thumbnailImage = document.createElement('img');
         thumbnailImage.src = videoThumbnail;
+        thumbnailImage.onerror = () => { thumbnailImage.src = item.snippet.thumbnails.medium.url }
         thumbnailImage.classList.add('thumbnail-image');
 
         const videoTitleElement = document.createElement('h3');
@@ -110,6 +117,18 @@ function getVideosFromOldArchive() {
             allowtransparency="false"></iframe>`;
 }
 
+function getThumbnailFromArchive(date){
+  if (date.getDay() == 4) {
+    date.setDate(date.getDate() - 1);
+  }
+
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+  var day = date.getDate()  < 10 ? `0${date.getDate()}` : date.getDate();
+  // console.log(`${date} / ${date.getDay()} / ${day}`);
+  return `https://a1.biserici.live/sperantaoradearo/${year}/${month}/${day}/thumb240.jpg`;
+   
+}
 /*
 ideea if i do not get answer. It's still better than ours
 https://www.cezareea.ro/transmisie-live/arhiva-video-cezareea-ro/
