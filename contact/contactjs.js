@@ -1,4 +1,4 @@
-emailjs.init('EJx66pTUSl1mZKrT2');
+emailjs.init('RM0jxfSjGcDtfTWNE');
 
 document.querySelector('.submit-button').addEventListener('click', function(event) {
     var isFormComplete = formCheck(document.querySelector('#name').value,
@@ -13,7 +13,7 @@ document.querySelector('.submit-button').addEventListener('click', function(even
         submitButton.disabled = true;
         submitButton.style.backgroundColor = "#ffffff90";
 
-        emailjs.sendForm('service_y6k7skr', 'template_du3t41e', '#email-form')
+        emailjs.sendForm('service_gmail', 'template_contact_message', '#email-form')
             .then(function() {
                 document.querySelector('.w-form-fail').style.display = 'none';
                 document.querySelector('.w-form-done').style.display = 'block';
