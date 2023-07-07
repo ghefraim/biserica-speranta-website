@@ -1149,20 +1149,6 @@ label {
     position: static
 }
 
-.grid-3 {
-    grid-column-gap: 2px;
-    grid-row-gap: 2px;
-    grid-template-rows: repeat(auto-fit, 50px);
-    grid-template-columns: 30px 30px 30px;
-    grid-template-areas: ". Area"
-}
-
-.image-3,
-.image-4,
-.image-5 {
-    margin: auto
-}
-
 .container-2 {
     grid-column-gap: 16px;
     grid-row-gap: 16px;

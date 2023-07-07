@@ -13,3 +13,11 @@
   line-height: 26px;
   transition: border-color .4s;
 }
+
+.social-icon-img {
+  width: 50px;
+}
+
+.instagram-filter{
+filter: invert(38%) sepia(29%) saturate(2376%) hue-rotate(294deg) brightness(90%) contrast(109%);
+}

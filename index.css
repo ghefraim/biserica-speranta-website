@@ -353,6 +353,7 @@
 .news-text > div > div > p {
   /* font-weight: 600; */
   font-size: 19px;
+  text-transform: uppercase;
 }
 
 @media screen and (max-width:976px) {

@@ -104,3 +104,35 @@ main {
 .page-title {
   text-align: center;
 }
+
+.grid-3 {
+  grid-column-gap: 14px;
+  grid-row-gap: 2px;
+  grid-template-rows: repeat(auto-fit, 50px);
+  grid-template-columns: 30px 30px 30px;
+  grid-template-areas: ". Area";
+}
+
+.image-3 {
+  /* instagram color filter: */
+  filter: invert(38%) sepia(29%) saturate(2376%) hue-rotate(294deg) brightness(90%) contrast(109%);
+}
+
+.image-3,
+.image-4,
+.image-5 {
+  margin: auto;
+  width: 50px;
+}
+
+@media (max-width:600px) {
+  .grid-3 {
+    grid-column-gap: 4px;
+  }
+
+  .image-3,
+  .image-4,
+  .image-5 {
+    width: 25px;
+  }
+}
