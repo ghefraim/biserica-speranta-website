@@ -26,19 +26,24 @@ function playVideo(event) {
 
   videoPlayerContainer.innerHTML = `
     <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0"  allowfullscreen></iframe>
-    <button onclick="closeVideo()">Close</button>
   `;
 
   videoPlayerContainer.classList.add('active');
 }
 
 // Function to close the video
-function closeVideo() {
-  const videoPlayerContainer = document.getElementById('video-player');
-  videoPlayerContainer.innerHTML = '';
-
-  videoPlayerContainer.classList.remove('active');
-}
+var videoPlayerContainer = document.getElementById('video-player');
+var videoPlayerIFrame= document.getElementById('video-player > iframe');
+window.addEventListener("click", (e) => {
+    if (videoPlayerIFrame.contains(e.target)) {
+      // Clicked on popup
+    } else {
+      // Clicked outside the poup
+      
+      videoPlayerIFrame.innerHTML = '';
+      // videoPlayerContainer.classList.remove('active');
+    }
+});
 
 const search_button = document.querySelector('.search-button').addEventListener("click", function(event) {
    var month = document.querySelector("#month").value;
@@ -68,7 +73,7 @@ function getVideosFromYoutube(startDate, endDate){
     .then(response => response.json())
     .then(data => {
       const videosContainer = document.getElementById('videos');
-              console.log();
+              console.log(data);
       // Iterate through the videos and create a thumbnail for each video
       data.items.forEach(item => {
         const videoId = item.id.videoId;
