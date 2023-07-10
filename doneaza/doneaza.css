@@ -18,12 +18,14 @@
     background-color: rgb(58, 77, 24);
 }
 .qr-container {
+    padding-top: 10px;
     text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 .qr-container > img{
     max-height: 100px;
     margin: 0 auto;
-    margin-top: 20px;
 }
 
 .w-container {
