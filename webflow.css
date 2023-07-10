@@ -3501,6 +3501,7 @@ figcaption {
 .div-block-2 {
   cursor: pointer;
   background-color: #fff;
+  border-radius: 7px;
 }
 
 .heading {
@@ -3518,6 +3519,7 @@ figcaption {
 
 .div-block-3 {
   background-color: #adadad;
+  border-radius: 7px;
 }
 
 .text-block-7 {
