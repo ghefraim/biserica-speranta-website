@@ -69,3 +69,14 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById(departament).style.display = "block";
     
 });
+
+
+function expandSectoare() {
+    const content = document.querySelector(".sectoare-content");
+    if(!content.classList.contains("expand")) {
+        content.classList.add("expand");
+    } 
+    else {
+        content.classList.remove("expand");
+    }
+}

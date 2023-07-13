@@ -68,3 +68,17 @@ hr {
         height: 1px;
     }
 }
+
+.sectoare-button  {
+    margin-top: 15px;
+    text-align: center;
+}
+.sectoare-content {
+    visibility: hidden;
+    display: block;
+    height: 0;
+}
+.sectoare-content.expand {
+    visibility: visible;
+    height: auto;
+}
