@@ -27,7 +27,7 @@ function getArchive() {
   var archiveContainer = document.querySelector("#archive-container");
   archiveContainer.innerHTML = 
   `<iframe scrolling="auto" frameborder="1"
-    src="http://archives.bisericilive.com/gallery?cid=sperantaoradearo`+
+    src="https://archives.bisericilive.com/gallery?cid=sperantaoradearo`+
     `&bgc=a2a2a2`+
     `&c=${columnsNumber}`+
     `&gc=000`+
