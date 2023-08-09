@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Planificare | Speranța Oradea</title>
+    <meta content="Planificare | Speranța Oradea" property="og:title" />
+    <meta content="Planificare | Speranța Oradea" property="twitter:title" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="../assets/only-logo-speranta.PNG" rel="icon">
+    <link href="../assets/only-logo-speranta.PNG" rel="shortcut icon" type="image/x-icon" />
+    <link href="../assets/only-logo-speranta.PNG" rel="apple-touch-icon" />
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+    
+        .pdf-wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .pdf-wrapper > iframe {
+            flex: 1;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="pdf-wrapper">
+        <iframe 
+            src="https://docs.google.com/viewer?url=http://sperantaoradea.ro/assets/updatable/evanghelizare.pdf&embedded=true"
+            width="100%" >
+        </iframe>
+
+        <!--the URL parameter from the link above must be kept up to date. Hopefully it won't change much
+        Replace with the following if SSL works:-->
+        <!-- <iframe
+            src="https://docs.google.com/viewer?url=https://sperantaoradea.ro/assets/updatable/foaia_de_informare.pdf&embedded=true"
+            width="100%" height="800px">
+        </iframe> -->
+
+    </div>
+</body>
+
+</html>
