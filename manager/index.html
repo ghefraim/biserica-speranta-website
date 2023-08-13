@@ -1,12 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manager | Speranța Oradea</title>
+    <link rel="stylesheet" href="../webflow.css">
+    <link rel="stylesheet" href="./index.css">
 </head>
+
 <body>
-    
+    <h1>Content Manager</h1>
+    <div id="fileList">
+        <h3>Foaia de informare</h3>
+
+        <table id="foaia-de-informare">
+        </table>
+
+        <h3>Noutati Imagini</h3>
+
+        <table id="news-images">
+
+        </table>
+
+    </div>
+
+    <div class="save">
+        ATENTIE!<br>Continutul fisierelor nu se va salva pana nu apesi butonul de mai jos!<br>
+        <button class="save-btn">SALVEAZA</button>
+    </div>
+
+    <script src="./file_list.js"></script>
+    <script src="./update_files.js"></script>
 </body>
-<script src="./manager.js" type="text/javascript"></script>
+
 </html>
