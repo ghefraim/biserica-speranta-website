@@ -54,3 +54,10 @@ tr:nth-child(1) {
     font-weight: 600;
 }
 
+.file-name-container {
+    display: flex;
+}
+
+.file-name-container > input {
+    width: 80%;
+}

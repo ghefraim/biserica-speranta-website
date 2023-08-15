@@ -13,10 +13,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $failedFiles = [];
     foreach ($filePaths as $filePath) {
         if (file_exists($filePath) && is_file($filePath)) {
+            echo ($newFilePath);
             if (unlink($filePath)) {
                 $deletedFiles[] = $filePath;
             } else {
                 $failedFiles[] = $filePath;
+                $error = error_get_last();
+                echo "Error deleting the file: " . $error['message'];
             }
         }
     }

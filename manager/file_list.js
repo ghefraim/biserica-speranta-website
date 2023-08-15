@@ -2,10 +2,11 @@ rootFolder = '../assets/test/';
 
 // Fetches the list of files and folders recursively
 function fetchFileNoutatiList() {
-    fetch(`file_list.php?regex=${encodeURIComponent('noutati-img-\d')}`)
+    // fetch(`file_list.php?regex=${encodeURIComponent('noutati-img-\d')}`)
+    fetch(`file_list.php?regex=noutati-imagini`)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
+        // console.log(data);
         // Clear previous file list
         const table = document.getElementById('news-images');
         table.innerHTML = '';
@@ -17,12 +18,12 @@ function fetchFileNoutatiList() {
         row.insertCell().textContent = "Folder";
         row.insertCell().textContent = "File link";
         row.insertCell().textContent = "Preview";
-        row.insertCell().textContent = "Schimbă fisier";
+        row.insertCell().textContent = "Schimba fisier";
         row.insertCell().textContent = "Sterge";
         // Process each item recursively
         processItems(data, '', table, rowCounter);
     })
-    .catch(error => console.log(error));
+    .catch(error => alert(error));
 }
 
 // Recursive function to process items (files and folders)
@@ -32,8 +33,8 @@ function processItems(items, parentFolder, table, rowCounter) {
         row.insertCell().textContent = parentFolder;
         row.insertCell().textContent = '-'; // Empty column for image name
         row.insertCell().textContent = ''; // Empty column for preview
-        row.insertCell().appendChild(createButton('upload'));
-        row.insertCell().appendChild(createButton('delete'));
+        row.insertCell().appendChild(createInput('upload'));
+        row.insertCell().appendChild(createInput('delete'));
 
     } else {
         items.forEach(item => {
@@ -43,8 +44,10 @@ function processItems(items, parentFolder, table, rowCounter) {
                 row.insertCell().textContent = parentFolder;
                 
                 var imageURL = `${rootFolder}${parentFolder}/${item}`;
-                row.insertCell().appendChild(createButton('file', item, imageURL));
+                row.insertCell().appendChild(createInput('file', item, imageURL));
+
                 // console.log(parentFolder);
+                // create the preview of the image:
                 if (/\.(jpe?g|png)$/i.test(item)) {
                     const previewCell = row.insertCell();
                     const previewImage = document.createElement('img');
@@ -57,8 +60,9 @@ function processItems(items, parentFolder, table, rowCounter) {
                     row.insertCell();
                 }
 
-                row.insertCell().appendChild(createButton('upload'));
-                row.insertCell().appendChild(createButton('delete'));
+                // create the upload and delete buttons
+                row.insertCell().appendChild(createInput('upload'));
+                row.insertCell().appendChild(createInput('delete'));
             } 
             else if (typeof item === 'object') {
                 // Process subfolder
@@ -88,13 +92,13 @@ function createFoaiaDeInformareTable(parentFolder, item) {
         foaiaTable.style.color = "#9d5353";
     }
     else{
-        row2.insertCell().appendChild(createButton('file', item, url));
+        row2.insertCell().appendChild(createInput('file', item, url));
     }
-    row2.insertCell().appendChild(createButton('upload'));
-    row2.insertCell().appendChild(createButton('delete'));
+    row2.insertCell().appendChild(createInput('upload'));
+    row2.insertCell().appendChild(createInput('delete'));
 }
 
-function createButton(type, name='', url = '') {
+function createInput(type, name='', url = '') {
     if (type == "upload") {
         var inputElement = document.createElement("input");
         inputElement.type = "file";
@@ -105,10 +109,20 @@ function createButton(type, name='', url = '') {
         return inputElement;
     } 
     else if (type == "file") {
-        const fileLink = document.createElement('a');
-        fileLink.textContent = name;
-        fileLink.href = url;
-        return fileLink;
+        var fileNameContainer = document.createElement('div');
+        fileNameContainer.classList.add('file-name-container');
+        
+        var inputElement = document.createElement('input');
+        inputElement.type = "text";
+        inputElement.value = name.split('.')[0];
+
+        var fileExtension = document.createElement('p');
+        fileExtension.textContent = '.' + name.split('.')[1];
+
+        fileNameContainer.appendChild(inputElement);
+        fileNameContainer.appendChild(fileExtension);
+
+        return fileNameContainer;
     }
     else if (type == "delete") {
         var inputElement = document.createElement("input");

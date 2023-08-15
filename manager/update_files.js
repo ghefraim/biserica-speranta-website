@@ -14,7 +14,7 @@ function handleUploadedFiles(event) {
         file: fileToUpload, 
         folderPath, 
     });
-    console.log(filesToUpload);
+    // console.log(filesToUpload);
     //ui:
     event.target.parentElement.parentElement.style.backgroundColor = '#92c2d8';
     document.querySelector('.save-btn').style.backgroundColor = '#92c2d8';
@@ -56,19 +56,20 @@ function handleDeletedFiles(event) {
         event.target.parentElement.parentElement.style.backgroundColor = '#c0beb9';
         document.querySelector('.save-btn').style.backgroundColor = '#fff';
     }
-    console.log(filesToDelete);
+    // console.log(filesToDelete);
 }
 // Add event listener for save button click event
 const saveButton = document.querySelector('.save-btn');
 saveButton.addEventListener('click', saveFiles);
 
 async function saveFiles() {
-    if (filesToDelete.length > 0){
-        await deleteFiles();
-    }
-    if (filesToUpload.length > 0){
-        await uploadFiles();
-    }
+    const deletePromise = filesToDelete.length > 0 ? deleteFiles() : Promise.resolve();
+    const uploadPromise = filesToUpload.length > 0 ? uploadFiles() : Promise.resolve();
+
+    await Promise.all([deletePromise, uploadPromise]);
+
+    await new Promise(resolve => setTimeout(resolve, 200));
+    
     location.reload();
 }
 
@@ -89,10 +90,10 @@ async function uploadFiles() {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data); // Handle the server response
+        // console.log(data); // Handle the server response
         filesToUpload.length = 0; // Clear the file inputs array 
     })
-    .catch(error => alert(error));
+    .catch(error => console.log(error));
 }
 
 async function deleteFiles() {
@@ -111,8 +112,8 @@ async function deleteFiles() {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data); // Handle the server response
+        // console.log(data); // Handle the server response
         filesToDelete.length = 0; // Clear the file inputs array 
     })
-    .catch(error => alert(error));
+    .catch(error => console.log(error));
 }
