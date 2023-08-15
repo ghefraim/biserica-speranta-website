@@ -1,6 +1,7 @@
 // Array to store the file inputs
 const filesToUpload = [];
 const filesToDelete = [];
+var filesToEdit = [];
 
 // Function to handle file input change event
 
@@ -30,16 +31,19 @@ function handleUploadedFiles(event) {
 }
 
 function handleDeletedFiles(event) {
-    const folderName = event.target.parentElement.parentElement.querySelector('td').innerHTML;
+    const folderName = "noutati-imagini";
     var fileName;
     try {
-        fileName = event.target.parentElement.parentElement.querySelector('td > a').innerHTML;
+        fileNameContainer = event.target.parentElement.parentElement.querySelector('.file-name-container');
+        fileName = fileNameContainer.querySelector('input').value;
+        fileName += fileNameContainer.querySelector('p').innerHTML;
+        // console.log(fileName);
     } catch (ex) {
         fileName = 'random';
         return;
     }
     const filePath = `${rootFolder}${folderName}/${fileName}`;
-
+    console.log(filePath);
     if (event.target.checked) {    
         filesToDelete.push({ 
             filePath, 
@@ -58,19 +62,62 @@ function handleDeletedFiles(event) {
     }
     // console.log(filesToDelete);
 }
+
 // Add event listener for save button click event
 const saveButton = document.querySelector('.save-btn');
 saveButton.addEventListener('click', saveFiles);
 
 async function saveFiles() {
-    const deletePromise = filesToDelete.length > 0 ? deleteFiles() : Promise.resolve();
+    const editPromise = editFiles();
     const uploadPromise = filesToUpload.length > 0 ? uploadFiles() : Promise.resolve();
+    const deletePromise = filesToDelete.length > 0 ? deleteFiles() : Promise.resolve();
 
-    await Promise.all([deletePromise, uploadPromise]);
+    await Promise.all([editPromise, deletePromise, uploadPromise]);
 
     await new Promise(resolve => setTimeout(resolve, 200));
     
-    location.reload();
+    // location.reload();
+}
+
+async function editFiles() {
+    filesContainers = document.querySelectorAll('.file-name-container');
+
+    filesContainers.forEach(f => {
+        initialName = f.id.split('.')[0];
+        replaceName = f.querySelector('input').value;
+        typeOfFile = f.querySelector('p').innerHTML;
+        parentFolder = rootFolder + 'noutati-imagini'
+
+        if (initialName != replaceName){
+            filesToEdit.push({ 
+                initialName,
+                replaceName, 
+                typeOfFile,
+                parentFolder,
+            });
+        }
+    });
+
+    // console.log(filesToEdit);
+    const formData = new FormData();
+    filesToEdit.forEach((fileInput, index) => {
+        const { initialName, replaceName, typeOfFile, parentFolder } = fileInput;
+        formData.append(`initialName${index}`, initialName);
+        formData.append(`replaceName${index}`, replaceName);
+        formData.append(`typeOfFile${index}`, typeOfFile);
+        formData.append(`parentFolder${index}`, parentFolder);
+    });
+
+    fetch(`edit_files.php`, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        filesToEdit = [];
+    })
+    .catch(error => console.log(error));
+
 }
 
 async function uploadFiles() {

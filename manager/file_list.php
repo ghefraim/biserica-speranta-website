@@ -8,9 +8,10 @@ function scanFolder($folder, $regex) {
 
     // Get the list of files and folders
     $list = array_diff(scandir($folder), array('.', '..'));
-
+    
     // Iterate through each item
     foreach ($list as $subfolder) {
+        // fails here when $folder name changes
         $subfolderList = array_diff(scandir($folder . '/' .$subfolder), array('.', '..'));
         if (preg_match($regex, $subfolder)) {
             $files = array();

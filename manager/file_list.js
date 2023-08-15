@@ -15,11 +15,10 @@ function fetchFileNoutatiList() {
         let rowCounter = 1;
 
         const row = table.insertRow();
-        row.insertCell().textContent = "Folder";
-        row.insertCell().textContent = "File link";
+        row.insertCell().textContent = "File";
         row.insertCell().textContent = "Preview";
-        row.insertCell().textContent = "Schimba fisier";
-        row.insertCell().textContent = "Sterge";
+        // row.insertCell().textContent = "Schimba fisier";
+        row.insertCell().textContent = "Delete";
         // Process each item recursively
         processItems(data, '', table, rowCounter);
     })
@@ -41,7 +40,6 @@ function processItems(items, parentFolder, table, rowCounter) {
             if (typeof item === 'string') {
                 // Process file
                 const row = table.insertRow();
-                row.insertCell().textContent = parentFolder;
                 
                 var imageURL = `${rootFolder}${parentFolder}/${item}`;
                 row.insertCell().appendChild(createInput('file', item, imageURL));
@@ -61,7 +59,7 @@ function processItems(items, parentFolder, table, rowCounter) {
                 }
 
                 // create the upload and delete buttons
-                row.insertCell().appendChild(createInput('upload'));
+                // row.insertCell().appendChild(createInput('upload'));
                 row.insertCell().appendChild(createInput('delete'));
             } 
             else if (typeof item === 'object') {
@@ -111,6 +109,7 @@ function createInput(type, name='', url = '') {
     else if (type == "file") {
         var fileNameContainer = document.createElement('div');
         fileNameContainer.classList.add('file-name-container');
+        fileNameContainer.id = name;
         
         var inputElement = document.createElement('input');
         inputElement.type = "text";

@@ -61,3 +61,13 @@ tr:nth-child(1) {
 .file-name-container > input {
     width: 80%;
 }
+
+.delete-file {
+    width: 25px;
+    height: 25px;
+}
+
+td:has(> .delete-file) {
+    background-color: rgba(97, 67, 67, 0.295);
+    text-align: center;
+}
