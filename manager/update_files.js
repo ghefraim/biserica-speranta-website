@@ -76,7 +76,7 @@ async function saveFiles() {
 
     await new Promise(resolve => setTimeout(resolve, 200));
     
-    // location.reload();
+    location.reload();
 }
 
 async function editFiles() {

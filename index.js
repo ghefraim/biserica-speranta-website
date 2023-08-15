@@ -3,7 +3,6 @@ let slideshowTimer;
 
 let i;
 let slides = document.getElementsByClassName("news-slides");
-showSlides();
 
 function showSlides() {
   goToSlide(1);
@@ -84,3 +83,50 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
+
+
+// images from folders:
+rootFolder = './assets/test/';
+const apiFolder = 'manager/'
+
+// Fetches the list of files and folders recursively
+function fetchNewsImages() {
+    fetch(`${apiFolder}file_list.php?regex=noutati-imagini`)
+    .then(response => response.json())
+    .then(data => {
+        // console.log(data);
+        processItems(data, '');
+		showSlides();
+    })
+    .catch(error => alert(error));
+}
+
+function processItems(items, parentFolder) {
+  if (items.length === 0) { // Process empty folder
+  } else {
+      items.forEach(item => {
+          if (typeof item === 'string') {
+              // Process file
+              var imageURL = `${rootFolder}${parentFolder}/${item}`;
+
+              var image = document.createElement('img');
+              image.src = imageURL;
+
+              var imageContainer = document.createElement('div');
+              imageContainer.classList.add('news-slides');
+              imageContainer.appendChild(image);
+
+              document.querySelector('.slideshow-container').appendChild(imageContainer);
+          } 
+          else if (typeof item === 'object') {
+              // Process subfolder
+              const folderName = item.folderName;
+              const files = item.files;
+
+              processItems(files, folderName);
+          }
+      });
+  }
+}
+
+fetchNewsImages();
