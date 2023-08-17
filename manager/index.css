@@ -4,6 +4,10 @@ body {
 
 h1, h3 {
     text-align: center;
+    margin: 20px auto;
+}
+h3 {
+    color: #1c3261;
 }
 #fileList {
     text-align: center;
@@ -50,6 +54,8 @@ tr:nth-child(1) {
 }
 
 .save-btn {
+    background-color: #3a9462;
+    color: white;
     padding: 10px 20px;
     font-weight: 600;
 }
@@ -96,4 +102,37 @@ td:has(> .delete-file) {
 .upload-form-container {
     margin: 0 auto;
     max-width: 200px;
+    color: #052438;
+    margin-bottom: 20px;
+}
+
+#foaia-container > a {
+    color: #ffffff;
+    background: #052438;
+    max-width: 200px;
+    margin: 0 auto;
+    text-decoration: none;
+    margin-bottom: 30px;
+}
+
+.divider {
+    width: 100%;
+    height: 2px;
+    background: #000;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.save-pdf {
+    margin: 30px auto;
+    text-align: center;
+}
+
+.save-pdf-btn {
+    background-color: #3a9462;
+    color: white;
+    padding: 10px 20px;
+    font-weight: 600;
 }

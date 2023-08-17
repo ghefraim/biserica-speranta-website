@@ -184,6 +184,7 @@ async function uploadFiles() {
         formData.append(`file${index}`, file);
         formData.append(`folderPath${index}`, folderPath);
     });
+    // console.log(formData);
 
     // Send the FormData to the server for upload
     fetch(`upload_files.php`, {

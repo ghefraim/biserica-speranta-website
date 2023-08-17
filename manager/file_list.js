@@ -80,29 +80,6 @@ function processItems(items, parentFolder, table, rowCounter) {
     }
 }
 
-function createFoaiaDeInformareTable(parentFolder, item) {
-    const foaiaTable = document.getElementById('foaia-de-informare');
-    foaiaTable.innerHTML = '';
-    const row1 = foaiaTable.insertRow();
-    row1.insertCell().textContent = "Folder";
-    row1.insertCell().textContent = "File link";
-    row1.insertCell().textContent = "Schimbă fisier";
-    row1.insertCell().textContent = "Sterge";
-
-    const row2 = foaiaTable.insertRow();
-    row2.insertCell().textContent = parentFolder;
-    var url = `${rootFolder}${parentFolder}/${item}`;
-    if(item = '-'){
-        row2.insertCell().textContent = '-';
-        foaiaTable.style.color = "#9d5353";
-    }
-    else{
-        row2.insertCell().appendChild(createInput('file', item, url));
-    }
-    row2.insertCell().appendChild(createInput('upload'));
-    row2.insertCell().appendChild(createInput('delete'));
-}
-
 function createInput(type, name='', url = '') {
     if (type == "upload") {
         var inputElement = document.createElement("input");

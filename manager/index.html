@@ -8,37 +8,51 @@
 </head>
 
 <body>
+    <div class="divider"></div>
     <h1>Content Manager</h1>
     <div id="fileList">
-        <h3>Foaia de informare</h3>
-
-        <table id="foaia-de-informare">
-        </table>
+        <div class="divider"></div>
 
         <h3>Noutati Imagini</h3>
 
         <table id="news-images">
-
         </table>
 
-        <!-- <button class="add-file-button" input="button">
-            +
-        </button> -->
         <div class="upload-form-container">
-        <form class="upload-form">
-            <p>Incarca imagini:</p>
-            <input accept="image/*" type='file' id="imgInput" />
-        </form>
+            <form class="upload-form">
+                <p>Incarca imagini:</p>
+                <input accept="image/*" type='file' id="imgInput" />
+            </form>
         </div>
+
+        <div class="save">
+            <button class="save-btn">SAVE IMGs</button>
+        </div>
+
+
+
+        <div class="divider"></div>
+
+        <h3>Foaia de informare</h3>
+
+        <div id="foaia-container">
+           
+        </div>
+
     </div>
 
-    <div class="save">
-        ATENTIE!<br>Fisierele nu se vor incarca si ordinea fisierelor nu se va salva pana nu apesi butonul de mai jos!<br>
-        <button class="save-btn">SAVE</button>
+    
+
+    <div class="divider"></div>
+
+    <div class="text-center">
+        ATENTIE!<br>Fisierele nu se vor incarca si ordinea fisierelor nu se va salva<br> pana nu apesi butonul de SAVE corespunzator!<br>
     </div>
+
 
     <script src="./file_list.js"></script>
     <script src="./update_files.js"></script>
+    <script src="./foaia_de_informare.js"></script>
     <script>
         
     </script>
