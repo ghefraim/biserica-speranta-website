@@ -45,7 +45,7 @@ tr:nth-child(1) {
 }
 
 .save {
-    margin: 10px auto;
+    margin: 30px auto;
     text-align: center;
 }
 
@@ -55,11 +55,11 @@ tr:nth-child(1) {
 }
 
 .file-name-container {
-    display: flex;
+    /* display: flex; */
 }
 
 .file-name-container > input {
-    width: 80%;
+    width: 50px;
 }
 
 .delete-file {
@@ -70,4 +70,30 @@ tr:nth-child(1) {
 td:has(> .delete-file) {
     background-color: rgba(97, 67, 67, 0.295);
     text-align: center;
+}
+
+.add-file-button {
+    background-color: rgb(50, 102, 170);
+    color: white;
+    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+    margin: 10px auto;
+    font-size: 20pt;
+    text-align: center;
+}
+
+.uploaded-row{
+    background-color: rgb(140, 172, 170) !important;
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.upload-form-container {
+    margin: 0 auto;
+    max-width: 200px;
 }

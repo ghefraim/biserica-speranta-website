@@ -12,7 +12,7 @@ function handleUploadedFiles(event) {
 
     filesToUpload.push({ 
         input: event.target,
-        file: fileToUpload, 
+        file: fileToUpload,
         folderPath, 
     });
     // console.log(filesToUpload);
@@ -30,20 +30,71 @@ function handleUploadedFiles(event) {
     }
 }
 
+imgInput.onchange = evt => {
+    const [file] = imgInput.files
+    if (file) {
+        const renamedFile = new File([file], getNewFileName(file.name));
+
+        const table = document.querySelector('#news-images');
+        const row = table.insertRow();
+
+        row.classList.add('uploaded-row');
+        row.insertCell();
+        row.insertCell();
+
+        const previewCell = row.insertCell();
+        const previewImage = document.createElement('img');
+
+        previewImage.src = URL.createObjectURL(renamedFile);
+        previewImage.classList.add('preview-image');
+        previewCell.appendChild(previewImage);
+        previewCell.classList.add('preview-image-wrapper');
+
+        row.insertCell();
+
+        const folderPath = `${rootFolder}noutati-imagini/`;
+        filesToUpload.push({ 
+            input: "idk",
+            file: renamedFile,
+            folderPath, 
+        });
+    }
+}
+
+function getNewFileName(initialName){
+    let keepTrying = true;
+    let uid = 999;
+    while (keepTrying) {
+        uid = getRandomInteger(101, 998);
+        newsImages[0].files.forEach(f => {
+            if (!f.includes(uid.toString())) {
+                keepTrying = false;
+            }
+        });
+    }
+    nextOrderNumber = document.querySelector('#news-images > tbody').childElementCount;
+    let newName = `${nextOrderNumber}-${uid}.${initialName.split('.')[1]}`;
+    return newName;
+}
+function getRandomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
+}
+
 function handleDeletedFiles(event) {
     const folderName = "noutati-imagini";
     var fileName;
     try {
         fileNameContainer = event.target.parentElement.parentElement.querySelector('.file-name-container');
-        fileName = fileNameContainer.querySelector('input').value;
-        fileName += fileNameContainer.querySelector('p').innerHTML;
-        // console.log(fileName);
+        fileName = fileNameContainer.id;
+        // fileName = fileNameContainer.querySelector('input').value;
+        // fileName += fileNameContainer.querySelector('p').innerHTML;
     } catch (ex) {
         fileName = 'random';
         return;
     }
     const filePath = `${rootFolder}${folderName}/${fileName}`;
-    console.log(filePath);
+    // console.log(filePath);
+
     if (event.target.checked) {    
         filesToDelete.push({ 
             filePath, 
@@ -83,16 +134,19 @@ async function editFiles() {
     filesContainers = document.querySelectorAll('.file-name-container');
 
     filesContainers.forEach(f => {
-        initialName = f.id.split('.')[0];
-        replaceName = f.querySelector('input').value;
-        typeOfFile = f.querySelector('p').innerHTML;
-        parentFolder = rootFolder + 'noutati-imagini'
+        initialOrder = f.id.split('-')[0];
+        replaceOrder = f.querySelector('input').value;
+        if(replaceOrder === "") {
+            return ;
+        }
+        idAndTypeOfFile = f.parentElement.parentElement.children.item(1).innerHTML;
+        parentFolder = rootFolder + 'noutati-imagini';
 
-        if (initialName != replaceName){
+        if (initialOrder != replaceOrder){
             filesToEdit.push({ 
-                initialName,
-                replaceName, 
-                typeOfFile,
+                initialOrder,
+                replaceOrder, 
+                idAndTypeOfFile,
                 parentFolder,
             });
         }
@@ -101,10 +155,10 @@ async function editFiles() {
     // console.log(filesToEdit);
     const formData = new FormData();
     filesToEdit.forEach((fileInput, index) => {
-        const { initialName, replaceName, typeOfFile, parentFolder } = fileInput;
-        formData.append(`initialName${index}`, initialName);
-        formData.append(`replaceName${index}`, replaceName);
-        formData.append(`typeOfFile${index}`, typeOfFile);
+        const { initialOrder, replaceOrder, idAndTypeOfFile, parentFolder } = fileInput;
+        formData.append(`initialOrder${index}`, initialOrder);
+        formData.append(`replaceOrder${index}`, replaceOrder);
+        formData.append(`idAndTypeOfFile${index}`, idAndTypeOfFile);
         formData.append(`parentFolder${index}`, parentFolder);
     });
 
@@ -115,8 +169,9 @@ async function editFiles() {
     .then(response => response.json())
     .then(data => {
         filesToEdit = [];
+        // console.log(data);
     })
-    .catch(error => console.log(error));
+    .catch(error => alert(error));
 
 }
 

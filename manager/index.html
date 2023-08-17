@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Manager | Speranța Oradea</title>
+    <title>Manager | Speranta Oradea</title>
     <link rel="stylesheet" href="../webflow.css">
     <link rel="stylesheet" href="./index.css">
 </head>
@@ -21,26 +21,29 @@
 
         </table>
 
+        <!-- <button class="add-file-button" input="button">
+            +
+        </button> -->
+        <div class="upload-form-container">
+        <form class="upload-form">
+            <p>Incarca imagini:</p>
+            <input accept="image/*" type='file' id="imgInput" />
+        </form>
+        </div>
     </div>
 
     <div class="save">
-        ATENTIE!<br>Continutul fisierelor nu se va salva pana nu apesi butonul de mai jos!<br>
-        <button class="save-btn">SALVEAZA</button>
+        ATENTIE!<br>Fisierele nu se vor incarca si ordinea fisierelor nu se va salva pana nu apesi butonul de mai jos!<br>
+        <button class="save-btn">SAVE</button>
     </div>
 
     <script src="./file_list.js"></script>
     <script src="./update_files.js"></script>
+    <script>
+        
+    </script>
     <!--
         TODO: 
-        
-        bug:
-        when inter-changing file names it doesn't know what to do.
-        solution: have an id or some metadata info if possible.
-
-        bug: make it impossible for the input to be empty
-
-        feature: add file
-        *feature: highlight edited files
 
         feature: foaia de informare
     -->

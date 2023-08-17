@@ -1,5 +1,7 @@
 rootFolder = '../assets/test/';
 
+let newsImages;
+
 // Fetches the list of files and folders recursively
 function fetchFileNoutatiList() {
     // fetch(`file_list.php?regex=${encodeURIComponent('noutati-img-\d')}`)
@@ -15,12 +17,15 @@ function fetchFileNoutatiList() {
         let rowCounter = 1;
 
         const row = table.insertRow();
-        row.insertCell().textContent = "File";
+        row.insertCell().textContent = "Order";
+        row.insertCell().textContent = "ID";
         row.insertCell().textContent = "Preview";
         // row.insertCell().textContent = "Schimba fisier";
         row.insertCell().textContent = "Delete";
         // Process each item recursively
         processItems(data, '', table, rowCounter);
+
+        newsImages = data;
     })
     .catch(error => alert(error));
 }
@@ -28,21 +33,23 @@ function fetchFileNoutatiList() {
 // Recursive function to process items (files and folders)
 function processItems(items, parentFolder, table, rowCounter) {
     if (items.length === 0) { // Process empty folder
-        const row = table.insertRow();
-        row.insertCell().textContent = parentFolder;
-        row.insertCell().textContent = '-'; // Empty column for image name
-        row.insertCell().textContent = ''; // Empty column for preview
-        row.insertCell().appendChild(createInput('upload'));
-        row.insertCell().appendChild(createInput('delete'));
+        // const row = table.insertRow();
+        // row.insertCell().textContent = parentFolder;
+        // row.insertCell().textContent = '-'; // Empty column for image name
+        // row.insertCell().textContent = ''; // Empty column for preview
+        // row.insertCell().appendChild(createInput('upload'));
+        // row.insertCell().appendChild(createInput('delete'));
 
     } else {
         items.forEach(item => {
             if (typeof item === 'string') {
                 // Process file
                 const row = table.insertRow();
-                
+
                 var imageURL = `${rootFolder}${parentFolder}/${item}`;
-                row.insertCell().appendChild(createInput('file', item, imageURL));
+                row.insertCell().appendChild(createInput('order', item, imageURL));
+
+                row.insertCell().textContent = item.split('-')[1];
 
                 // console.log(parentFolder);
                 // create the preview of the image:
@@ -106,20 +113,16 @@ function createInput(type, name='', url = '') {
 
         return inputElement;
     } 
-    else if (type == "file") {
+    else if (type == "order") {
         var fileNameContainer = document.createElement('div');
         fileNameContainer.classList.add('file-name-container');
         fileNameContainer.id = name;
         
         var inputElement = document.createElement('input');
-        inputElement.type = "text";
-        inputElement.value = name.split('.')[0];
-
-        var fileExtension = document.createElement('p');
-        fileExtension.textContent = '.' + name.split('.')[1];
+        inputElement.type = "text"; //could be number?
+        inputElement.value = name.split('-')[0];
 
         fileNameContainer.appendChild(inputElement);
-        fileNameContainer.appendChild(fileExtension);
 
         return fileNameContainer;
     }

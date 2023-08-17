@@ -4,39 +4,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $response = array();
 
     // Loop through the form data sent by JavaScript
-    for ($index = 0; isset($_POST["initialName{$index}"]); $index++) {
-        $initialName = $_POST["initialName{$index}"];
-        $replaceName = $_POST["replaceName{$index}"];
-        $typeOfFile = $_POST["typeOfFile{$index}"];
+    for ($index = 0; isset($_POST["initialOrder{$index}"]); $index++) {
+        $initialOrder = $_POST["initialOrder{$index}"];
+        $replaceOrder = $_POST["replaceOrder{$index}"];
+        $idAndTypeOfFile = $_POST["idAndTypeOfFile{$index}"];
         $parentFolder = $_POST["parentFolder{$index}"];
 
         // Example: Perform file editing based on the provided data
         // You can replace this part with your own file editing logic
-        $oldFilePath = "{$parentFolder}/{$initialName}{$typeOfFile}";
-        $newFilePath = "{$parentFolder}/{$replaceName}{$typeOfFile}";
+        $oldFilePath = "{$parentFolder}/{$initialOrder}-{$idAndTypeOfFile}";
+        $newFilePath = "{$parentFolder}/{$replaceOrder}-{$idAndTypeOfFile}";
 
-        //echo $oldFilePath;
-        //echo $newFilePath;
         try {
             $status = rename($oldFilePath, $newFilePath);
         }
         catch (Exception $e){
             echo 'Caught exception: ',  $e->getMessage(), "\n";
         }
-        echo $status;
         if ($status) {
             $response[] = array(
-                "initialName" => $initialName,
-                "replaceName" => $replaceName,
-                "typeOfFile" => $typeOfFile,
+                "initialOrder" => $initialOrder,
+                "replaceOrder" => $replaceOrder,
+                "idAndTypeOfFile" => $idAndTypeOfFile,
                 "parentFolder" => $parentFolder,
                 "status" => "success"
             );
         } else {
             $response[] = array(
-                "initialName" => $initialName,
-                "replaceName" => $replaceName,
-                "typeOfFile" => $typeOfFile,
+                "initialOrder" => $initialOrder,
+                "replaceOrder" => $replaceOrder,
+                "idAndTypeOfFile" => $idAndTypeOfFile,
                 "parentFolder" => $parentFolder,
                 
                 "errorMessage" => error_get_last(),

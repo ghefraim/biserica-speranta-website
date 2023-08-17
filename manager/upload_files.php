@@ -9,11 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $fileList = glob($_POST['folderPath' . substr($key, 4)] . '/*');
 
         // Iterate over the file list and delete each file
-        foreach ($fileList as $filesPath) {
-            if (is_file($filesPath)) {
-                unlink($filesPath);
-            }
-        }
+        // foreach ($fileList as $filesPath) {
+        //     if (is_file($filesPath)) {
+        //         unlink($filesPath);
+        //     }
+        // }
 
         // Move the uploaded file to the target folder
         move_uploaded_file($file['tmp_name'], $filepath);
