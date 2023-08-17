@@ -90,7 +90,7 @@ td:has(> .delete-file) {
 }
 
 .uploaded-row{
-    background-color: rgb(140, 172, 170) !important;
+    background-color: #8cacaa !important;
 }
 
 .upload-form {

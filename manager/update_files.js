@@ -18,7 +18,6 @@ function handleUploadedFiles(event) {
     // console.log(filesToUpload);
     //ui:
     event.target.parentElement.parentElement.style.backgroundColor = '#92c2d8';
-    document.querySelector('.save-btn').style.backgroundColor = '#92c2d8';
      
     if (/\.(jpe?g|png)$/i.test(fileToUpload)) {
         const reader = new FileReader();
@@ -58,6 +57,8 @@ imgInput.onchange = evt => {
             file: renamedFile,
             folderPath, 
         });
+        document.querySelector('.save-btn').style.backgroundColor = '#8cacaa';
+
     }
 }
 
@@ -101,7 +102,7 @@ function handleDeletedFiles(event) {
         });
 
         event.target.parentElement.parentElement.style.backgroundColor = 'rgb(191 160 163)';
-        document.querySelector('.save-btn').style.backgroundColor = '#92c2d8';
+        document.querySelector('.save-btn').style.backgroundColor = 'rgb(163 115 115)';
     }
     else {
         const index = filesToDelete.findIndex(file => file.filePath === filePath);
@@ -109,7 +110,6 @@ function handleDeletedFiles(event) {
             filesToDelete.splice(index, 1);
         }
         event.target.parentElement.parentElement.style.backgroundColor = '#c0beb9';
-        document.querySelector('.save-btn').style.backgroundColor = '#fff';
     }
     // console.log(filesToDelete);
 }
