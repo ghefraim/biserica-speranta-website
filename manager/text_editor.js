@@ -1,18 +1,17 @@
 
 
-const saveTextBtn = document.querySelector('.save-text-btn');
 
-saveTextBtn.addEventListener('click', () => {
-    var textContent = document.querySelector('#editor').innerHTML;
-    
-    fetch('edit_text.php', {
+document.querySelector('#text-form').addEventListener('submit', (event) => {
+    var textContent = document.querySelector('#editor').value;
+    event.preventDefault();
+
+    fetch(`edit_text.php?textContent=${encodeURIComponent(textContent)}`, {
         method: 'POST',
-        body: new URLSearchParams({ textContent })
     })
     .then(response => response.json())
     .then(data => {
         if (data.status === 'success') {
-            alert('File content updated successfully.');
+            alert('Textul a fost updatat cu succes.');
             location.reload();
         } else {
             alert('Error updating file content.');

@@ -130,3 +130,12 @@ function processItems(items, parentFolder) {
 }
 
 fetchNewsImages();
+
+
+fetch('read_text.php')
+    .then(response => response.text())
+    .then(textContent => {
+      console.log(textContent);
+      document.querySelector('.updatable-text').innerHTML = textContent;
+    })
+    .catch(error => console.log(error));

@@ -137,14 +137,20 @@ td:has(> .delete-file) {
     font-weight: 600;
 }
 
-.save-text {
-    margin: 30px auto;
-    text-align: center;
-}
-
 .save-text-btn {
     background-color: #3a9462;
     color: white;
     padding: 10px 20px;
     font-weight: 600;
+    margin: 30px auto;
+}
+
+textarea {
+    resize: none;
+}
+
+#text-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
