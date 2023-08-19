@@ -17,7 +17,7 @@ function fetchFileNoutatiList() {
         let rowCounter = 1;
 
         const row = table.insertRow();
-        row.insertCell().textContent = "Order";
+        row.insertCell().textContent = "Ordine";
         row.insertCell().textContent = "ID";
         row.insertCell().textContent = "Preview";
         // row.insertCell().textContent = "Schimba fisier";
