@@ -91,7 +91,7 @@ const apiFolder = 'manager/'
 
 // Fetches the list of files and folders recursively
 function fetchNewsImages() {
-    fetch(`${apiFolder}file_list.php?regex=noutati-imagini`)
+    fetch(`file_list.php?regex=noutati-imagini`)
     .then(response => response.json())
     .then(data => {
         // console.log(data);

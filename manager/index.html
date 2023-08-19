@@ -5,6 +5,8 @@
     <title>Manager | Speranta Oradea</title>
     <link rel="stylesheet" href="../webflow.css">
     <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 </head>
 
 <body>
@@ -30,6 +32,19 @@
         </div>
 
 
+                
+        <div class="divider"></div>
+
+        <h3>Text saptamanal</h3>
+
+        <div class="text-section"></div>
+        <textarea id="editor" name="editor" rows="4" cols="50"></textarea>
+        <div class="save-text">
+            <button class="save-text-btn">SAVE TEXT</button>
+        </div>
+
+        
+
 
         <div class="divider"></div>
 
@@ -38,6 +53,7 @@
         <div id="foaia-container">
            
         </div>
+
 
     </div>
 
@@ -51,16 +67,9 @@
 
 
     <script src="./file_list.js"></script>
+    <script src="./text-editor.js"></script>
     <script src="./update_files.js"></script>
     <script src="./foaia_de_informare.js"></script>
-    <script>
-        
-    </script>
-    <!--
-        TODO: 
-
-        feature: foaia de informare
-    -->
 </body>
 
 </html>
