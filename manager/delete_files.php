@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Perform file deletion
     $deletedFiles = [];
     $failedFiles = [];
+    $errorMessages = [];
     foreach ($filePaths as $filePath) {
         if (file_exists($filePath) && is_file($filePath)) {
             echo ($newFilePath);
@@ -19,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 $failedFiles[] = $filePath;
                 $error = error_get_last();
-                echo "Error deleting the file: " . $error['message'];
+                $errorMessages[] = $error['message'];
             }
         }
     }
@@ -28,7 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $response = [
         'message' => 'Files deleted successfully',
         'deletedFiles' => $deletedFiles,
-        'failedFiles' => $failedFiles
+        'failedFiles' => $failedFiles,
+        'errorMessages' => $errorMessages
     ];
 
     // Send the JSON response

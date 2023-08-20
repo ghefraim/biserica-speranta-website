@@ -26,6 +26,9 @@ function handleUploadedFiles(event) {
             imageToChange.src = e.target.result;
         };
         reader.readAsDataURL(fileToUpload);
+        console.log('.save-btm');
+        document.querySelector('.save-btn').innerHTML = 'O';
+        // doesnt work ??????
     }
 }
 
